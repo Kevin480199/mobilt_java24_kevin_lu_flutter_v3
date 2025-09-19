@@ -50,30 +50,7 @@ class _noteState extends State<note> {
     }
   }
 
-  /*
-  Future<List<Map<String, dynamic>>> _loadNotesList() async {
-    final uid = FirebaseAuth.instance.currentUser?.uid;
-    if (uid == null) return [];
 
-    final query = await FirebaseFirestore.instance
-        .collection('notes')
-        .doc(uid)
-        .collection('notes')
-        .orderBy('timestamp', descending: true)
-        .get();
-
-    return query.docs.map((doc) {
-      final data = doc.data();
-      return {
-        'id': doc.id,
-        'title': data['title'] ?? '',
-        'text': data['text'] ?? '',
-      };
-    }).toList();
-  }
-
-
-   */
   Future<void> _saveNote() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) return;
